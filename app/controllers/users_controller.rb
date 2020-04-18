@@ -15,6 +15,16 @@ class UsersController < ApplicationController
       password: password,
     )
     render plain: "New User Created with the name #{new_user.name}"
-  end
+     end
+
+     def login
+        email = params[:email]
+        password = params[:password]
+        if User.where("email = ? and password = ?", email,password).empty?
+          render plain: "FALSE! Login FAILED."
+        else
+          render plain: "TRUE! Login SUCCESSFUL."
+        end
+      end
 
 end
