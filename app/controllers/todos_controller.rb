@@ -2,12 +2,15 @@
 class TodosController < ApplicationController
   skip_before_action :verify_authenticity_token
     def index
-        render plain: Todo.order(:id).map{|todo| todo.pls_string}.join("\n")
+        #render plain: Todo.order(:id).map{|todo| todo.pls_string}.join("\n")
+        render "index"
       end
       def show
         id=params[:id]
         todo=Todo.find(id)
-        render plain: todo.pls_string
+        render "todo"
+        #render plain: todo.pls_string
+        
       end
       def create
         todo_text=params[:todo_text]

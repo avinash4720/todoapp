@@ -1,0 +1,10 @@
+<h1>this is todos</h1>
+
+<h2>There are a total of <%= Todo.count%> todos</h2>
+
+<% Todo.all.each do |todo| %>
+    <div style="display: flex;">
+        <p> <%= todo.todo_text %> </p>
+        <p> <%= todo.due_date%> </p>
+    </div>
+ <% end %>
