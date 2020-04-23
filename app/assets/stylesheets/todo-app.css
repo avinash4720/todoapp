@@ -87,6 +87,9 @@ body{
     padding: 2px 8px;
     align-items: center;
   }
+  .TodoItem-completedText{
+    text-decoration: line-through;
+   }
 
   .TodoItem-delete{
     margin-left: 8px;
