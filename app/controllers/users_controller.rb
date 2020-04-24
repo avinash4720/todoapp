@@ -4,17 +4,23 @@ class UsersController < ApplicationController
     def index
     render plain: User.all.map {|user| user.to_formatted_string}.join("\n")
     end
+
+    def new
+      render "users/new"
+    end
+
     
     def create
     name = params[:name]
+    last_name = params[:last_name]
     email = params[:email]
     password = params[:password]
     new_user = User.create!(
       name: name,
       email: email,
-      password: password,
+      password: password,last_name: last_name
     )
-    render plain: "New User Created with the name #{new_user.name}"
+    redirect_to "/"
      end
 
      def login
