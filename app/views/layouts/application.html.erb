@@ -10,7 +10,10 @@
   </head>
 
   <body>
-  
+
+    <% if @current_user %>
+     <p class="UserHeader"> <%= @current_user.name%></p>
+    <%end%>
     <%= yield %>
   </body>
 </html>
