@@ -12,7 +12,9 @@
   <body>
 
     <% if @current_user %>
-     <p class="UserHeader"> <%= @current_user.name%></p>
+     <p class="UserHeader"> <%= @current_user.name%>
+     <%= link_to "signout", destroy_session_path, method: "delete"%>
+     </p>
     <%end%>
     <%= yield %>
   </body>
