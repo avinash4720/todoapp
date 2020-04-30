@@ -1,9 +1,9 @@
 
 class TodosController < ApplicationController
-  
+  #skip_before_action :ensure_user_logged_in
     def index
         #render plain: Todo.order(:id).map{|todo| todo.pls_string}.join("\n")
-        @todos = Todo.of_user(current_user)
+        @todos = current_user.todos
         render "index"
       end
       def show
